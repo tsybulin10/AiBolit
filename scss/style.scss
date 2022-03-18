@@ -1,101 +1,59 @@
+$orange:  #FFC59E;
+$brown: #59443F;
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
+ul li{
+	list-style-type: none;
+}
 .container{
 	max-width: 1400px;
 	margin: 0 auto;
 	display: flex;
 	flex: 1 1 auto;
 }
-
 .main{
-	display: flex;
-	&__switcher {
-		color: rgb(0, 0, 0);
-		margin-top: 130px;
-		max-width: 40px;
-		width: 100%;
-		text-align: center;
+	&__inner{
 		display: flex;
 		flex-direction: column;
 	}
+	&__navbar{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__list{
+		display: flex;
+		flex-direction: column;
+	}
+	&__content{
+		display:flex;
+	}
 }
-.switcher {
-	&__one{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 70px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__one.active{
-		background-image: url(/img/icons/process.svg);
-	}
-	&__two{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 70px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__two.active{
-		background-image: url(/img/icons/process.svg);
-	}
-	&__three{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 70px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__three.active{
-		background-image: url(/img/icons/process.svg);
-	}
-	&__four{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 70px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__four.active{
-		background-image: url(/img/icons/process.svg);
-	}
-	&__five{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 70px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__five.active{
-		background-image: url(/img/icons/process.svg);
-	}
-	&__six{
-		width: 40px;
-		height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&__six.active{
-		background-image: url(/img/icons/process.svg);
-	}
+.block {
+	opacity: 0;
+	transition: .5s;
+ }
 
-	&__one:hover,
-	&__two:hover,
-	&__three:hover,
-	&__four:hover,
-	&__five:hover,
-	&__six:hover{
-		background-image: url(/img/icons/process.svg);
-	}
-}
+ .list {
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	transition: .5s;
+	min-width: 40px;
+	min-height: 40px;
+	margin-bottom: 70px;
+ }
+ .list:last-child{
+	 margin-bottom: 0;
+ }
+ .list.active{
+	background: url('/img/icons/process.svg') center no-repeat;
+ }
+ .active {
+	opacity: 1;
+ }
+
+

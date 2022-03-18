@@ -5,6 +5,10 @@
           box-sizing: border-box;
 }
 
+ul li {
+  list-style-type: none;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -16,18 +20,7 @@
           flex: 1 1 auto;
 }
 
-.main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.main__switcher {
-  color: black;
-  margin-top: 130px;
-  max-width: 40px;
-  width: 100%;
-  text-align: center;
+.main__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,119 +30,64 @@
           flex-direction: column;
 }
 
-.switcher__one {
-  width: 40px;
-  height: 40px;
+.main__navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.block {
+  opacity: 0;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  min-width: 40px;
+  min-height: 40px;
   margin-bottom: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.switcher__one.active {
-  background-image: url(/img/icons/process.svg);
+.list:last-child {
+  margin-bottom: 0;
 }
 
-.switcher__two {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.list.active {
+  background: url("/img/icons/process.svg") center no-repeat;
 }
 
-.switcher__two.active {
-  background-image: url(/img/icons/process.svg);
-}
-
-.switcher__three {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.switcher__three.active {
-  background-image: url(/img/icons/process.svg);
-}
-
-.switcher__four {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.switcher__four.active {
-  background-image: url(/img/icons/process.svg);
-}
-
-.switcher__five {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.switcher__five.active {
-  background-image: url(/img/icons/process.svg);
-}
-
-.switcher__six {
-  width: 40px;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.switcher__six.active {
-  background-image: url(/img/icons/process.svg);
-}
-
-.switcher__one:hover, .switcher__two:hover, .switcher__three:hover, .switcher__four:hover, .switcher__five:hover, .switcher__six:hover {
-  background-image: url(/img/icons/process.svg);
+.active {
+  opacity: 1;
 }
