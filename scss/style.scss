@@ -6,37 +6,123 @@ $brown: #59443F;
 	padding: 0;
 	box-sizing: border-box;
 }
+body{
+	font-size: 18px;
+}
 ul li{
 	list-style-type: none;
 }
+a {
+	text-decoration: none;
+}
 .container{
-	max-width: 1400px;
+	max-width: 1200px;
 	margin: 0 auto;
 	display: flex;
-	flex: 1 1 auto;
 }
+
 .main{
 	&__inner{
 		display: flex;
 		flex-direction: column;
+		min-width: 100%;
 	}
 	&__navbar{
 		display: flex;
 		justify-content: space-between;
+		margin-top: 65px;
+		margin-bottom: 130px;
+		align-items:center;
+		height: 100%;
+		max-height: 100px;
+	}
+	&__wrapper{
+		display: flex;
+		flex-direction: row;
 	}
 	&__list{
 		display: flex;
 		flex-direction: column;
+		margin-right: 150px;
 	}
 	&__content{
-		display:flex;
+		width: 100%;
+	}
+}
+.navbar {
+
+	&__logo {
+		max-width: 100%;
+	}
+
+	&__navigator {
+		color: #C3B9B5;
+		text-transform: uppercase;
+		margin: 0 50px;
+	}
+	&__navigator a {
+		color: #C3B9B5;
+	}
+	&__navigator ul {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__navigator li {
+		padding-right: 50px;
+	}
+	&__navigator li:last-child {
+		padding-right: 0px;
+	}
+	&__city {
+		display: flex;
+		align-items:center;
+	}
+	&__city span {
+		color: $orange;
+		margin-left: 8px;
 	}
 }
 .block {
+	position: absolute;
 	opacity: 0;
-	transition: .5s;
+	display: flex;
+	justify-content: space-between;
  }
+ .block h1 {
+	font-family: 'SchoolBook';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 50px;
+	line-height: 1.5;
+ }
+ .block img{
+	width: 60%;
+ }
+ .block:nth-child(1) img {
+	position: relative;
+	left: 0;
+ }
+ .block:nth-child(2) img {
+	position: relative;
+	right: 10%;
+ }
+ .block:nth-child(3) img {
+	position: relative;
+	left: 5%;
+	width: 50%;
+ }
+ .block:nth-child(4) img {
+	position: relative;
+	width: 65%;
+	bottom: 100px;
+ } 
+ .block:nth-child(5) img{
+	 position: relative;
+ }
+ .block:nth-child(6) img {
+	position: relative;
 
+ }
  .list {
 	display: flex;
 	align-items:center;
@@ -53,6 +139,7 @@ ul li{
 	background: url('/img/icons/process.svg') center no-repeat;
  }
  .active {
+	transition: 2s;
 	opacity: 1;
  }
 
