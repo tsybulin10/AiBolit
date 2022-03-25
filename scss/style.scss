@@ -48,13 +48,14 @@ $brown-light: rgba(195, 185, 181, 1);
 
 *,
 *::before,
-*::after {
+*::after,
+*:hover {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 body{
-	font-size: 20px;
+	@include adaptiv-value ("font-size", 20, 14, 0);
 }
 ul li{
 	list-style-type: none;
@@ -64,7 +65,11 @@ a {
 }
 h2{
 	font-weight: 400;
-	font-size: 30px;
+	@include adaptiv-value ("font-size", 40, 30, 0);
+}
+h3{
+	font-weight: 400;
+	@include adaptiv-value ("font-size", 30, 20, 0);
 }
 .wrapper {
 	overflow: hidden;
@@ -76,27 +81,27 @@ body._lock {
 	overflow: hidden;
 }
 
-.header__container {
+.header{
+&__container {
 	width: 1760px;
 	max-width: 100%;
 	padding: 0 20px;
-	@include adaptiv-value("margin-top", 60, 0,0);
+	@include adaptiv-value("margin-top", 60, 20,0);
 	@include adaptiv-value("margin-bottom", 60, 0,0);
 	margin-left:auto;
 	margin-right: auto;
-}
-.header__title{
-	position: relative;
-}
+	}
+	&__title{
+		position: relative;
+	}
+}	
+
 .title {
 	display: flex;
 	justify-content: space-between;
 	max-width: 100%;
 	&__icon{
 		display: none;
-	}
-	&__logo img{
-		width: 100%;
 	}
 	&__navbar{
 		display: flex;
@@ -136,6 +141,9 @@ body._lock {
 
 	&__link {
 		color: $orange;
+		&:hover{
+			color: $brown;
+		}
 	}
 	&__navbar-sub{
 		display: none;
@@ -180,7 +188,7 @@ body._lock {
 	}
 
 	&__blocks {
-		@include adaptiv-value ("margin-left", 350, 30, 0);
+		@include adaptiv-value ("margin-left", 300, 30, 0);
 		width: 100%;
 		position: absolute;
 		height: 100%;
@@ -229,8 +237,11 @@ body._lock {
 		font-size: calc(13px + (20 - 13) * ((100vw - 320px) / (1920 - 320)));
 		border-radius: calc(15px + (33.5 - 15) * ((100vw - 320px) / (1920 - 320)));
 		box-shadow: 0px 4px 20px #FFC59E;
+		&:hover{
+			background-color:$brown;
+			box-shadow: 0px 4px 20px $brown;
+		}
 	}
-
 	&__social {
 		margin-top: calc(40px + (220 - 40) * ((100vw - 320px) / (1920 - 320)));
 		display: flex;
@@ -264,11 +275,76 @@ body._lock {
 		@include adaptiv-value ("font-size", 20, 14, 0)
 	}
 }
-
 .active{
 	opacity: 1;
 	visibility: visible;
 }
+
+.cards{
+	&__container{
+		max-width: 1424px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	&__body{
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		justify-content: center;
+	}
+	&__link{
+		flex: 1 1 auto;
+		position: relative;
+		display: block;
+		@include adaptiv-value ("width", 320, 110, 0);
+		@include adaptiv-value ("height", 220, 100, 0);
+		@include adaptiv-value ("margin-right", 24, 14, 0);
+		@include adaptiv-value ("margin-bottom", 24, 14, 0);
+		background: #FFFFFF;
+		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+		@include adaptiv-value("border-radius", 20, 13, 0);
+		color: $brown;
+		&:hover{
+				border: 1px solid #C3B9B5;
+				& .cards__items{
+					padding: 23px 0 23px 23px;
+				}
+				& .cards__items svg {
+					margin: 23px;
+				}
+		}
+		&:nth-child(4n+4){
+			margin-right: 0;
+			margin-bottom: 0;
+		}
+	}
+	&__items{
+		@include adaptiv-value ("padding", 24, 10, 0);
+		display: flex;
+		height: 100%;
+		& svg {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			fill: $orange;
+			@include adaptiv-value ("margin", 24, 10, 0);
+			@include adaptiv-value ("width", 110, 40, 0);
+			@include adaptiv-value ("height", 110, 40, 0);
+		}
+		&:hover {
+			& svg{
+				fill:$brown
+			}
+		}
+	}
+	&__text{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+}
+
 
 .dropdown {
 	position: relative;
@@ -460,6 +536,26 @@ z-index: 10;
 	}
 	
 }
+
+@media screen and (max-width:718px) {
+	.cards__link:nth-child(3n+3){
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+	.cards__link:nth-child(4n+4){
+		@include adaptiv-value ("margin-right", 24, 14, 0);
+		@include adaptiv-value ("margin-bottom", 24, 14, 0);
+		&:last-child {
+			@include adaptiv-value ("margin-left", 24, 14, 0);
+		}
+	}
+	.cards__link:nth-last-child(5) {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+}
+
 @media screen and (max-width:620px) {
 	.block{
 	&__social {
@@ -472,11 +568,29 @@ z-index: 10;
 	}
 }
 
+@media screen and (max-width:451px) {
+	.cards__link:nth-child(2n+2) {
+		margin: 0;
+	}
+	.cards__link:nth-child(3n+3){
+		@include adaptiv-value ("margin-right", 24, 14, 0);
+		@include adaptiv-value ("margin-bottom", 24, 14, 0);
+	}
+	
+	
+	.cards__link:nth-child(4n+4){
+		margin: 0;
+	}
+}
+
 @media screen  and (max-width: 425px) {
 	.block__img {
 		width: 70%;
 	}
 	.block:nth-last-child(4) {
 		width: 120%;
+	}
+	.title__logo img {
+		width: 60%;
 	}
 }
