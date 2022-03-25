@@ -83,8 +83,8 @@ if (menuLinks.length > 0) {
 	}
 }
 
-// var count = $(".block").length, i = 1;
-// setInterval(function() {
-//   i < count ? i++ : i = 1;
-//   $(".block").removeClass("active").eq(i - 1).addClass("active"),
-//   $(".list").removeClass("active").eq(i - 1).addClass("active") }, 5000);
+let count = $(".block").length, i = 1;
+setInterval(function() {
+  i < count ? i++ : i = 1;
+  $(".block").removeClass("active").eq(i - 1).addClass("active"),
+  $(".list").removeClass("active").eq(i - 1).addClass("active") }, 5000);

@@ -72,12 +72,16 @@ h2{
 	min-width: 100%;
 	margin: 0 auto;
 }
+body._lock {
+	overflow: hidden;
+}
+
 .header__container {
 	width: 1760px;
 	max-width: 100%;
 	padding: 0 20px;
-	@include adaptiv-value("margin-top", 60, 20,0);
-	@include adaptiv-value("margin-bottom", 60, 20,0);
+	@include adaptiv-value("margin-top", 60, 0,0);
+	@include adaptiv-value("margin-bottom", 60, 0,0);
 	margin-left:auto;
 	margin-right: auto;
 }
@@ -124,9 +128,10 @@ h2{
 		display: flex;
 		align-items: center;
 		text-transform: uppercase;
+		@include adaptiv-value("font-size", 20, 14, 0);
 	}
 	&__city img {
-		width: 100%;
+		max-width: 100%;
 	}
 
 	&__link {
@@ -156,7 +161,6 @@ h2{
 	}
 
 	&__list-link {
-		// margin-bottom: 70px;
 		@include adaptiv-value ("margin-bottom", 70, 20, 0);
 		width: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
 		height: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
@@ -176,13 +180,34 @@ h2{
 	}
 
 	&__blocks {
-		margin-left: calc(30px + (265 - 30) * ((100vw - 320px) / (1920 - 320)));
+		@include adaptiv-value ("margin-left", 350, 30, 0);
 		width: 100%;
 		position: absolute;
 		height: 100%;
 		opacity: 0;
 		visibility: hidden;
+		transition: all 1s ease-out;
+		&:nth-last-child(1) .block__img{
+			@include adaptiv-value ("left", 600, 80, 0);
+			@include adaptiv-value ("bottom", 180, 70, 0);
+		}
+		&:nth-last-child(2) .block__img{
+			@include adaptiv-value ("left", 550, 80, 0);
+			@include adaptiv-value ("bottom", 30, 20, 0);
+		}
+		&:nth-last-child(3) .block__img{
+			@include adaptiv-value ("left", 650, 100, 0);
+			@include adaptiv-value ("bottom", 100, 40, 0);
+		}
+		&:nth-last-child(4) .block__img{
+			@include adaptiv-value ("left", 600, 140, 0);
+			width: 35%;
+		}
+		&:nth-last-child(5) .block__img{
+			@include adaptiv-value ("left", 500, 100, 0);
+		}
 	}
+
 }
 
 .block {
@@ -295,7 +320,7 @@ top: 0;
 left: 0;
 opacity: 0;
 visibility: hidden;
-z-index: 5;
+z-index: 10;
 &.open{
 	opacity: 1;
 	visibility: visible;
@@ -315,6 +340,7 @@ z-index: 5;
 		color:#000;
 		border-radius: 20px;
 		max-width: 400px;
+		width: 100%;
 		padding: 50px 0;
 		position: relative;
 		transition: all 0.8s ease 0;
@@ -330,7 +356,7 @@ z-index: 5;
 	&__title {
 		text-align: center;
 		margin-bottom: 40px;
-		padding: 0 130px;
+		@include adaptiv-value ("padding-top", 50, 20, 0);
 	}
 
 	&__text {
@@ -346,6 +372,8 @@ z-index: 5;
 		color: $orange;
 	}
 }
+
+
 @media screen and (max-width:950px) {
 	.title {
 		&__icon {
@@ -357,6 +385,7 @@ z-index: 5;
 			cursor: pointer;
 			right: 0;
 			top:40%;
+			margin-left: 15px;
 		}
 		&__icon span,
 		&__icon::before,
@@ -404,19 +433,29 @@ z-index: 5;
 		}
 		&__city {
 			margin-right: 200px;
-			@include adaptiv-value("margin-right", 200, 50, 0)
+			@include adaptiv-value("margin-right", 200, 70, 0)
 		}
 		&__navbar-sub._active{
 			display: flex;
 			min-height: 100%;
 			min-width: 100%;
-			background-color: #000;
+			background: rgba(8, 6, 6, 0.8);
 			position: fixed;
 			z-index: 1;
 			left: 0;
 			top:0;
-			opacity: 0.8;
 			transition: all 0.8s ease 0s;
+			& ul{
+				margin-top: 20px;
+				@include adaptiv-value ("margin-left", 30, 20, 0);
+			}
+			& li{
+				margin-bottom: 15px;
+			}
+			& a{
+				color: #fff;
+				text-transform: uppercase;
+			}
 		}
 	}
 	
@@ -427,14 +466,17 @@ z-index: 5;
 		flex-direction: column;
 		align-items: flex-start;
 	}
+}
 	&__links {
 		@include adaptiv-value ("margin-bottom",30, 15, 0 );
 	}
-	}
 }
 
-@media screen  and (max-width: 320px) {
+@media screen  and (max-width: 425px) {
 	.block__img {
-		width: 80%;
+		width: 70%;
+	}
+	.block:nth-last-child(4) {
+		width: 120%;
 	}
 }
