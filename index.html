@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 	<title>Айболит</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
 			</div>
 		</header>
 		<main>
-			<div class="main__slides">
+			<section class="main__slides">
 				<div class="main__list">
 					<ul>
 						<li class="main__list-link list active">
@@ -254,8 +255,8 @@
 					</div>
 					<img src="img/photo/image6.svg" alt="photo1" class="block__img">
 				</div>
-			</div>
-			<div class="main__cards cards">
+			</section>
+			<section class="main__cards cards">
 				<div class="cards__container">
 					<div class="cards__body">
 						<a href="#" class="cards__link">
@@ -452,7 +453,58 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</section>
+			<section class="main__about about">
+				<div class="about__container">
+					<div class="about__body">
+						<div class="about__history">
+							<h2>История компании</h2>
+							<p>История компании начинается 14 января 1999 года, когда было образовано ООО «Чижи». Идея пришла, т.к. у основателя компании Прозор Жанны Георгиевны была собака боксёр по кличке Бард…</p>
+							<a href="#">читай далее <svg width="9" height="14" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0.571289 6.99998C0.571289 6.78492 0.655322 6.56988 0.823035 6.40591L6.10325 1.24617C6.43914 0.917943 6.98372 0.917943 7.31948 1.24617C7.65523 1.57426 7.65523 2.10632 7.31948 2.43458L2.64725 6.99998L7.31931 11.5654C7.65506 11.8936 7.65506 12.4256 7.31931 12.7537C6.98356 13.0821 6.43898 13.0821 6.10309 12.7537L0.822872 7.59405C0.655132 7.43 0.571289 7.21496 0.571289 6.99998Z"  />
+								</svg>
+								</a>
+						</div>
+						<div class="about__expert">
+							<h2>Наши специалисты</h2>
+							<div class="about-slider swiper">
+								<div class="about-slider__wrapper swiper-wrapper">
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 19.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 36.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 19.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 36.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 19.jpg" alt="photo">
+									</div>
+									<div class="about-slider__slide swiper-slide">
+										<img src="img/photo/Rectangle Copy 36.jpg" alt="photo">
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+							<div class="swiper-button-prev"></div>
+  							<div class="swiper-button-next"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 	</div>
 
@@ -471,8 +523,11 @@
 		</div>
 	</div>
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/popups.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/swiper.js"></script>
 </body>
 </html>
