@@ -201,17 +201,21 @@ let swiper = new Swiper('.about-slider', {
 	// Брейк поинты (адаптив)
 	// Ширина экрана
 	breakpoints: {
+		250: {
+			slidesPerView: 2,
+			slidesPerGroup: 1,
+		},
 		320: {
 			slidesPerView: 2,
 			slidesPerGroup: 1,
 		 },
-		 768: {
+		768: {
 			slidesPerView: 3,
-		 },
-		 1024: {
+		},
+		1024: {
 			slidesPerView: 4,
 			slidesPerGroup: 2,
-		 },
+		},
 		1200: {
 			slidesPerView: 5,
 		},

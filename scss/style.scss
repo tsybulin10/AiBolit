@@ -22,25 +22,27 @@ $maxWidthContainer: 1760;
 		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
 	}
 }
+
 @mixin adaptiv-value-img($property, $startSize, $minSize, $type) {
 	$addSize: $startSize - $minSize;
 	@if $type==1 {
 		//Только если меньше контейнера
-		#{$property}: $startSize + px;
-		@media (max-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(#{$minSize + px } + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		#{$property}: $startSize + '%';
+		@media (max-width: #{$maxWidthContainer + '%'}) {
+			#{$property}: calc(#{$minSize + '%'} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
 		}
 	} @else if $type==2 {
 		//Только если больше контейнера
-		#{$property}: $startSize + px;
-		@media (min-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		#{$property}: $startSize + '%';
+		@media (min-width: #{$maxWidthContainer + '%'}) {
+			#{$property}: calc(#{$minSize + '%'} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
 		}
 	} @else {
 		//Всегда
-		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		#{$property}: calc(#{$minSize + '%'} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
 	}
 }
+
 
 $orange:  #FFC59E;
 $brown: #59443F;
@@ -71,6 +73,7 @@ h2{
 h3{
 	font-weight: 400;
 	@include adaptiv-value ("font-size", 30, 20, 0);
+	color: #000;
 }
 .wrapper {
 	overflow: hidden;
@@ -326,10 +329,13 @@ body._lock {
 }
 
 .about{
+	background-color:#FBF8F8;
+	@include adaptiv-value ("padding-top", 190, 50, 0);
+	@include adaptiv-value ("padding-bottom", 190, 50, 0);
 	&__container {
 		max-width:1260px;
 		margin: 0 auto;
-		@include adaptiv-value ("padding", 15, 30, 0 );
+		@include adaptiv-value ("padding", 15, 10, 0 );
 	}
 	&__body {
 		display: flex;
@@ -398,6 +404,155 @@ body._lock {
 	}
 	.swiper-button-next {
 		right: -10px;
+	}
+}
+
+.counter{
+	&__container{
+		max-width: 800px;
+		margin: 0 auto;
+		@include adaptiv-value ("padding-top", 320, 70, 0);
+		@include adaptiv-value ("padding-bottom", 320, 100, 0);
+	}
+	&__wrapper{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		position: relative;
+		padding: 10px;
+	}
+	&__body{
+		& span {
+			font-weight: 700;
+			@include adaptiv-value ("font-size", 144, 60, 0);
+			color:$brown;
+		}
+		& p{
+			font-weight: 400;
+			@include adaptiv-value ("font-size", 80, 40, 0);
+			color: #000;
+		}
+		& img{
+			position: absolute;
+			@include adaptiv-value ("right", 100, -20, 0);
+			@include adaptiv-value ("bottom", -160, -80, 0);
+			z-index: -1;
+			max-width: 100%;
+		}
+	}
+}
+
+.benefits {
+	&__container {
+		max-width: 1640px;
+		margin: 0 auto;
+		@include adaptiv-value ("margin-top", 100, 40, 0);
+		@include adaptiv-value ("margin-bottom", 300, 40, 0);
+	}
+	&__body {
+		padding: 15px;
+		& h2 {
+			text-align: center;
+		}
+	}
+	&__items{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		@include adaptiv-value ("margin-top", 105, 60, 0);
+		&-item {
+			max-width: 100%;
+			@include adaptiv-value ("width", 460, 270, 0);
+			@include adaptiv-value("margin-bottom", 70, 30,0);
+		}
+		&-body{
+			display: flex;
+			position: relative;
+			left: 20px;
+			@include adaptiv-value("margin-top", 36, 20,0);
+			max-height: 100%;
+			@include adaptiv-value ("height", 170, 140, 0);
+			width: 100%;
+		}
+		&-text {
+			color: $brown;
+			font-weight: 400;
+			line-height: 30px;
+			max-width: 100%;
+			@include adaptiv-value ("line-height", 30,20,0);
+		}
+		&-svg{
+			@include adaptiv-value ("margin-right", 50, 20,0);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			max-width: 100px;
+			width: 100%;
+			& img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+.app {
+	background-color: $orange;
+	&__container {
+		max-width: 1390px;
+		padding: 20px;
+		margin: 0 auto;
+	}
+	&__wrapper {
+		@include adaptiv-value ("padding-top", 260, 70, 0);
+		@include adaptiv-value ("padding-bottom", 350, 70, 0);
+		position: relative;
+		display: flex;
+		flex-direction: row;
+	}
+	&__text {
+		color: #fff;
+		&-soon {
+			text-transform: uppercase;
+			margin-bottom: 30px;
+		}
+		&-title {
+			font-size: 80px;
+			line-height: 70px;
+			margin-bottom: 40px;
+		}
+		&-btn {
+			display: flex;
+			flex-direction: row;
+			&-appstore {
+				margin-right: 25px;
+			}
+		}
+	}
+
+	&__img {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		&-phone {
+			position: absolute;
+			right: 0;
+			@include adaptiv-value ("bottom", -200, 0, 0);
+			z-index: 1;
+			& img {
+				@include adaptiv-value ("max-width", 330, 100, 0);
+				width: 100%;
+			}
+		}
+		&-dog {
+			position: absolute;
+			@include adaptiv-value ("right", 200, 0, 0);
+			@include adaptiv-value ("bottom", -200, 0, 0);
+			& img {
+				@include adaptiv-value ("max-width", 493, 200, 0);
+				width: 100%;
+			}
+		}
 	}
 }
 
@@ -515,6 +670,20 @@ z-index: 10;
 }
 
 
+@media screen and (max-width: 1180px) {
+	.benefits {
+		&__items {
+			grid-template-columns: repeat(2, 1fr);
+			justify-items: center;
+			&-body{
+				left: 0;
+			}
+			&-title {
+				text-align: center;
+			}
+		}
+	}
+}
 
 @media screen and (max-width:950px) {
 	.title {
@@ -603,6 +772,24 @@ z-index: 10;
 	
 }
 
+@media screen and (max-width: 710px) {
+	.benefits {
+		&__items {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	.app {
+		&__text-btn {
+			flex-direction: column;
+		}
+		&__text {
+			width: 100%;
+		}
+	}
+}
+
 @media screen and (max-width:620px) {
 	.block{
 	&__social {
@@ -626,7 +813,7 @@ z-index: 10;
 		opacity: 0;
 	}
 	.about__expert{
-		height: 270px;
+		height: 280px;
 	}
 }
 
@@ -641,18 +828,31 @@ z-index: 10;
 		width: 60%;
 	}
 	.about__expert{
-		height: 260px;
+		height: 270px;
+	}
+	.counter__wrapper img{
+		max-width: 50%;
+	}
+	.app {
+		&__img-dog {
+			position: relative;
+			@include adaptiv-value ("bottom", 1000, -180, 0);
+			right: 0;
+		}
+		&__text {
+			width: 200%;
+		}
 	}
 }
 
 @media screen and (max-width: 375px) {
 	.about__expert{
-		height: 240px;
+		height: 250px;
 	}
 }
 
 @media screen and (max-width: 320px) {
 	.about__expert{
-		height: 220px;
+		height: 230px;
 	}
 }
