@@ -57,8 +57,9 @@ $brown-light: rgba(195, 185, 181, 1);
 	box-sizing: border-box;
 }
 body{
-	@include adaptiv-value ("font-size", 20, 14, 0);
-
+	@include adaptiv-value ("font-size", 20, 16, 0);
+	flex: 1 1 auto;
+	max-height: 100%;
 }
 ul li{
 	list-style-type: none;
@@ -84,6 +85,9 @@ h3{
 body._lock {
 	overflow: hidden;
 }
+
+
+//! header
 
 .header{
 &__container {
@@ -154,6 +158,9 @@ body._lock {
 	}
 }
 
+
+//!main
+
 .main {
 
 	&__slides {
@@ -192,13 +199,13 @@ body._lock {
 	}
 
 	&__blocks {
-		@include adaptiv-value ("margin-left", 300, 30, 0);
+		@include adaptiv-value ("padding-left", 350, 40, 0);
 		width: 100%;
 		position: absolute;
 		height: 100%;
-		opacity: 0;
 		visibility: hidden;
-		transition: all 1s ease-out;
+		opacity: 0;
+		
 		&:nth-last-child(1) .block__img{
 			@include adaptiv-value ("left", 600, 80, 0);
 			@include adaptiv-value ("bottom", 180, 70, 0);
@@ -266,7 +273,7 @@ body._lock {
 		font-size: calc(15px + (24 - 15) * ((100vw - 320px) / (1920 - 320)));
 		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		font-weight: 700;
-		z-index: 10;
+		z-index: 1;
 	}
 	&__img{
 		@include adaptiv-value ("left", 800, 130, 0);
@@ -462,8 +469,9 @@ body._lock {
 		@include adaptiv-value ("margin-top", 105, 60, 0);
 		&-item {
 			max-width: 100%;
-			@include adaptiv-value ("width", 460, 270, 0);
+			@include adaptiv-value ("width", 460, 290, 0);
 			@include adaptiv-value("margin-bottom", 70, 30,0);
+			max-height: 100%;
 		}
 		&-body{
 			display: flex;
@@ -471,13 +479,12 @@ body._lock {
 			left: 20px;
 			@include adaptiv-value("margin-top", 36, 20,0);
 			max-height: 100%;
-			@include adaptiv-value ("height", 170, 140, 0);
 			width: 100%;
 		}
 		&-text {
 			color: $brown;
 			font-weight: 400;
-			line-height: 30px;
+			@include adaptiv-value ("line-height", 30,20,0);
 			max-width: 100%;
 			@include adaptiv-value ("line-height", 30,20,0);
 		}
@@ -486,7 +493,7 @@ body._lock {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			max-width: 100px;
+			@include adaptiv-value ("max-width", 100,60,0);
 			width: 100%;
 			& img {
 				max-width: 100%;
@@ -498,13 +505,13 @@ body._lock {
 .app {
 	background-color: $orange;
 	&__container {
-		max-width: 1390px;
-		padding: 20px;
+		max-width: 1410px;
+		padding: 0 20px;
 		margin: 0 auto;
 	}
 	&__wrapper {
-		@include adaptiv-value ("padding-top", 260, 70, 0);
-		@include adaptiv-value ("padding-bottom", 350, 70, 0);
+		@include adaptiv-value ("padding-top", 260, 60, 0);
+		@include adaptiv-value ("padding-bottom", 350, 60, 0);
 		position: relative;
 		display: flex;
 		flex-direction: row;
@@ -513,12 +520,12 @@ body._lock {
 		color: #fff;
 		&-soon {
 			text-transform: uppercase;
-			margin-bottom: 30px;
+			@include adaptiv-value ("margin-bottom", 30,20,0);
 		}
 		&-title {
-			font-size: 80px;
-			line-height: 70px;
-			margin-bottom: 40px;
+			@include adaptiv-value ("font-size", 80,50,0);
+			@include adaptiv-value ("line-height", 70,40,0);
+			@include adaptiv-value ("margin-bottom",  40, 30, 0);
 		}
 		&-btn {
 			display: flex;
@@ -556,6 +563,103 @@ body._lock {
 	}
 }
 
+.contact {
+	&__container {
+		max-width: 1510px;
+		width: 100%;
+		padding: 0 20px;
+		margin: 0 auto;
+	}
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		@include adaptiv-value ("padding-top", 240, 60, 0);
+		@include adaptiv-value ("padding-bottom",210, 60, 0);
+	}
+	&__text{
+		&-title {
+			@include adaptiv-value("margin-bottom", 70,30,0);
+		}
+		&-sub-title{
+			margin-bottom: 20px;
+		}
+		&-sub-subtitle span {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			align-items: flex-start;
+			margin-bottom: 20px;
+			& img {
+				margin-right: 33px;
+			}
+		}
+	}
+	&__map {
+		margin: 0 auto;
+		& iframe {
+			max-width: 100%;
+		}
+	}
+}
+
+
+//!footer
+
+footer {
+	background-color: $brown;
+}
+
+.footer{
+	&__container {
+		max-width: 1490px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	&__wrapper {
+		@include adaptiv-value ("padding-bottom",60, 40, 0);
+		@include adaptiv-value ("padding-top", 80, 40, 0);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		width: 100%;
+		&-logo {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			color:#fff;
+			& h2{
+				@include adaptiv-value("font-size", 50, 30,0);
+			}
+			&-svg {
+				fill: #fff;
+				@include adaptiv-value ("margin-right", 22, 15,0);
+			}
+			&:hover,
+			&:hover svg{
+				color:$orange;
+				fill: $orange;
+			}
+		}
+		&-apps {
+			display: flex;
+			flex-direction: row;
+			margin-top: 10px;
+			&-appstore {
+				@include adaptiv-value ("margin-right", 15, 10, 0);
+			}
+		}
+	}
+	&__sub {
+		@include adaptiv-value ("margin-left", 112, 0, 0);
+	}
+}
+//!other blocks
 .dropdown {
 	position: relative;
 	&__content{
@@ -660,8 +764,9 @@ z-index: 10;
 }
 
 .active{
-	opacity: 1;
 	visibility: visible;
+	opacity: 1;
+	transition: all 1s ease-out;
 }
 
 .swiper-pagination {
@@ -815,6 +920,18 @@ z-index: 10;
 	.about__expert{
 		height: 280px;
 	}
+	.contact {
+		&__wrapper {
+			flex-direction: column;
+		}
+	}
+	.footer__title-apps {
+		flex-direction: column;
+		&-appstore {
+			margin-right: 0;
+			
+		}
+	}
 }
 
 @media screen and (max-width: 425px) {
@@ -836,7 +953,7 @@ z-index: 10;
 	.app {
 		&__img-dog {
 			position: relative;
-			@include adaptiv-value ("bottom", 1000, -180, 0);
+			@include adaptiv-value ("bottom", 1000, -40, 0);
 			right: 0;
 		}
 		&__text {
