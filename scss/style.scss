@@ -207,23 +207,23 @@ body._lock {
 		opacity: 0;
 		
 		&:nth-last-child(1) .block__img{
-			@include adaptiv-value ("left", 600, 80, 0);
+			@include adaptiv-value ("left", 950, 80, 0);
 			@include adaptiv-value ("bottom", 180, 70, 0);
 		}
 		&:nth-last-child(2) .block__img{
-			@include adaptiv-value ("left", 550, 80, 0);
+			@include adaptiv-value ("left", 850, 80, 0);
 			@include adaptiv-value ("bottom", 30, 20, 0);
 		}
 		&:nth-last-child(3) .block__img{
-			@include adaptiv-value ("left", 650, 100, 0);
+			@include adaptiv-value ("left", 850, 100, 0);
 			@include adaptiv-value ("bottom", 100, 40, 0);
 		}
 		&:nth-last-child(4) .block__img{
-			@include adaptiv-value ("left", 600, 140, 0);
+			@include adaptiv-value ("left", 850, 140, 0);
 			width: 35%;
 		}
 		&:nth-last-child(5) .block__img{
-			@include adaptiv-value ("left", 500, 100, 0);
+			@include adaptiv-value ("left", 700, 100, 0);
 		}
 	}
 
@@ -259,7 +259,7 @@ body._lock {
 		align-items: center;
 	}
 	&__links {
-		@include adaptiv-value ("margin-right", 950, 0, 0);
+		@include adaptiv-value ("margin-right", 900, 0, 0);
 	}
 	&__link {
 		margin-right: calc(5px + (50 - 5) * ((100vw - 320px) / (1920 - 320)));
@@ -276,7 +276,7 @@ body._lock {
 		z-index: 1;
 	}
 	&__img{
-		@include adaptiv-value ("left", 800, 130, 0);
+		@include adaptiv-value ("left", 950, 130, 0);
 		@include adaptiv-value ("bottom", 0, 0, 0);
 		position: absolute;
 		z-index: -1;
@@ -639,6 +639,10 @@ footer {
 			&-svg {
 				fill: #fff;
 				@include adaptiv-value ("margin-right", 22, 15,0);
+				& svg{
+					@include adaptiv-value ("width", 90,60,0);
+					height: auto;
+				}
 			}
 			&:hover,
 			&:hover svg{
@@ -650,13 +654,65 @@ footer {
 			display: flex;
 			flex-direction: row;
 			margin-top: 10px;
+			width: 310px;
+			max-width: 100%;
 			&-appstore {
 				@include adaptiv-value ("margin-right", 15, 10, 0);
+				& img {
+					max-width: 100%;
+				}
+			}
+			&-googleplay img {
+				max-width: 100%
 			}
 		}
 	}
 	&__sub {
 		@include adaptiv-value ("margin-left", 112, 0, 0);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		@include adaptiv-value ("margin-top", 30,15,0);
+		@include adaptiv-value ("line-height", 30,25,0);
+		& a {
+			color: #fff;
+			&:hover {
+				color: $orange;
+			}
+		}
+		&-policy {
+			@include adaptiv-value ("font-size", 20, 13,0);
+		}
+		&-links{
+			&-social a{
+				margin-right: calc(5px + (50 - 5) * ((100vw - 320px) / (1920 - 320)));
+				@include adaptiv-value ("margin-right", 45, 0, 0);
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+			&-social .social__svg {
+				fill: #fff;
+				&:hover {
+					fill: $orange;
+				}
+			}
+			&-email {
+				display: flex;
+				flex-direction: column;
+				@include adaptiv-value ("margin-top", 30,15,0);
+				@include adaptiv-value ("line-height", 30,20,0);
+			}
+			&-text {
+				color:#fff;
+				@include adaptiv-value ("margin-top",70,30,0);
+			}
+		}
+		&-policy,
+		&-navbar,
+		&-contact {
+			@include adaptiv-value ("padding-top", 30,15,0);
+		}
 	}
 }
 //!other blocks
@@ -811,7 +867,7 @@ z-index: 10;
 			height: 10%;
 			width: 100%;
 			transition: all 0.3s ease 0s;
-			background-color: rgb(121, 117, 117);
+			background-color: rgb(146, 144, 144);
 		}
 		&__icon::before,
 		&__icon::after {
@@ -871,10 +927,23 @@ z-index: 10;
 			& a{
 				color: #fff;
 				text-transform: uppercase;
+				font-size: 2rem;
 			}
 		}
 	}
-	
+	.footer{
+		&__sub {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			&-contact {
+				padding-top: 0;
+			}
+			&-contact,
+			&-links{
+				padding-top: 30px;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 710px) {
@@ -927,6 +996,7 @@ z-index: 10;
 	}
 	.footer__title-apps {
 		flex-direction: column;
+		align-items: center;
 		&-appstore {
 			margin-right: 0;
 			
@@ -958,6 +1028,15 @@ z-index: 10;
 		}
 		&__text {
 			width: 200%;
+		}
+	}
+	.footer{
+		&__title {
+			display: flex;
+			flex-direction: column;
+			&-apps {
+				align-items: flex-start;
+			}
 		}
 	}
 }
